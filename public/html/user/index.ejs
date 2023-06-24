@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Project - Login</title>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<div class="main-content">
+		<div class="top-header">
+			<div class="container">
+				<div class="info-bar">
+					<p>Free shipping for orders over $80 . Sign up and get 10% off* your first order.</p>
+				</div>
+			</div>
+		</div>
+		<header class="header bg-white" id="header">
+			<div class="container">
+				<div class="page-header">
+					<div class="header-left">
+						<div class="logo-image">
+				            <a href="/">
+				            	<img src="images/wigo-logo-img.png" width="70" height="36" alt="Wigo Store" itemprop="logo">
+				            </a>
+				      	</div>
+				      	<div class="header-menu">
+				      		<nav class="navigation">
+				      			<ul>
+				      				<li><a href="/collections">Collections</a></li>
+				      			</ul>
+				      		</nav>
+				      	</div>
+			      	</div>
+			      	<div class="header-right">
+			      		<div class="header-items">
+				          	<span class="sign-in">
+			            		<svg width="22px" height="22px" viewBox="-1 -1 21 20">
+								  	<g transform="translate(0.968750, -0.031250)" stroke="none" stroke-width="1" fill="currentColor" fill-rule="nonzero">
+								    	<path d="M9,7.5 C10.704,7.5 12.086,6.157 12.086,4.5 C12.086,2.843 10.704,1.5 9,1.5 C7.296,1.5 5.914,2.843 5.914,4.5 C5.914,6.157 7.296,7.5 9,7.5 Z M9,9 C6.444,9 4.371,6.985 4.371,4.5 C4.371,2.015 6.444,0 9,0 C11.556,0 13.629,2.015 13.629,4.5 C13.629,6.985 11.556,9 9,9 Z M1.543,18 L0,18 L0,15 C0,12.377 2.187,10.25 4.886,10.25 L14.143,10.25 C16.273,10.25 18,11.929 18,14 L18,18 L16.457,18 L16.457,14 C16.457,12.757 15.421,11.75 14.143,11.75 L4.886,11.75 C3.04,11.75 1.543,13.205 1.543,15 L1.543,18 Z"></path>
+								  	</g>
+								</svg>
+								<div class="head-link bg-white">
+									<a class="main-menu-link" href="/logout">Logout</a>
+								</div>
+				          	</span>
+				          
+					        <span class="cart-link">
+					            <a href="/cart">
+				              		<svg width="24px" height="24px" viewBox="0 -2 37 35">
+								  		<g transform="translate(0.500000, 0.500000)" stroke="none" fill="currentColor" fill-rule="nonzero">
+								    		<path d="M0.2,11 L9.5,29 L26.4,29 L35.7,11 L0.2,11 Z M24.5,26 L11.5,26 L4.8,14 L31.2,14 L24.5,26 L24.5,26 Z M18.5,3 C22.7,3 25.5,6.3 25.5,8.5 L28.5,8.5 C28.5,4.5 24.2,0 18.5,0 C12.8,0 8.5,4.5 8.5,8.5 L11.5,8.5 C11.5,6.3 14.3,3 18.5,3 Z"></path>
+								  		</g>
+									</svg>
+					            </a>
+					        </span>
+				        </div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<section class="banner-section">
+			<div class="container">
+				<!-- <div class="banner-slider">
+					<div class="slide-item">
+						<div class=""><img src="images/banner-01.jpg" alt=""></div>
+					</div>
+				</div> -->
+				<div class="slideshow-container">
+					<div class="mySlides fade">
+					  <img src="images/banner-01.jpg" alt="">
+					  <div class="slide-description">
+					  	<h2>Wigo Stores 01</h2>
+					  	<p>Find what you love, Love what you find</p>
+					  	<a href="#" class="button button--hollow justify-end inline-block">SHOP NOW</a>
+					  </div>
+					</div>
+					<div class="mySlides fade">
+					  <img src="images/banner-02.jpg" alt="">
+					  <div class="slide-description">
+					  	<h2>Wigo Stores 02</h2>
+					  	<p>Find what you love, Love what you find</p>
+					  	<a href="#" class="button button--hollow justify-end inline-block">SHOP NOW</a>
+					  </div>
+					</div>
+					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					<a class="next" onclick="plusSlides(1)">&#10095;</a>
+				</div>
+				<div class="dots">
+					<span class="dot" onclick="currentSlide(1)"></span> 
+					<span class="dot" onclick="currentSlide(2)"></span> 
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<div class="product-collection page-content">
+					<%if (Products.length>0){%>
+						<%for(let Product of Products){%>
+						<div class="grid-item">
+							<div class="product-item">
+								<div class="product-image">
+									<a href="/<%=Product.id%>/product">
+										<img src="<%=Product.image%>" alt="">
+									</a>
+								</div>
+								<div class="flags-all">
+									<span class="offer flag">1 Offer</span>
+									<span class="offer flag">Bestseller</span>
+								</div>
+								<div class="product-content">
+									<a href="/<%=Product.id%>/product" class="product-title" title="">
+										<div class="product-link">
+											<h2><%=Product.brand_name%></h2>
+											<h3><%=Product.product_name%></h3>
+											<div class="price">
+				                                <div class="regular-price">
+				                                    <span>
+				                                    	<span class="compare-price">$140.00</span>
+				                                    	<span class="money">$<%=Product.offer_price%></span>
+				                                    </span>
+												</div>	  
+				    						</div>
+			    						</div>
+			    					</a>
+								</div>
+							</div>
+						</div><%}%>
+						<% } else { %>
+						<div>  <h1>  No Best Seller Product 
+							Available Now </h1> </div><%}%>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<div class="product-collection page-content">
+					<h2 class="text-center section__title-text center-line">New Arrivals</h2>
+					<div class="flex">
+						<div class="mt-20">
+							<a href="/product">
+								<img src="images/new-arrivals.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<div class="product-collection page-content">
+					<h2 class="text-center section__title-text center-line">New Arrivals</h2> 
+					<div class="home-promo-section">
+						<%if (products.length>0){%>
+							<%for(let Product of products){%>
+					
+						<div class="mt-30 home-promo__item">
+							<div class="home-promo-content">
+								<div class="o-layout flex items-center row">
+									<div class="layout-item">
+										<div class="home-promo-media">
+											<img src="<%=Product.image%>"  alt="">
+										</div>
+									</div>
+									<div class="layout-item">
+										<div class="home-promo__box">
+	                                     	<div class="home-promo__title">
+	                                        	<h3 class="section__title-text"><%=Product.product_name%></h3>
+	                                    	</div>
+                                    		<div class="home-promo__text rte"><p><%=Product.description%></p></div>
+                                    		<a href="/<%=Product.id%>/product" class="button button--hollow justify-end inline-block">SHOP NOW</a>
+                            			</div>
+									</div>
+								</div>
+							</div>
+						</div><%}%>
+						<% } else { %>
+						<div>  <h1>  No New Product 
+							Available Now </h1> </div><%}%>
+						<div class="mt-30 home-promo__item">
+							<div class="home-promo-content">
+								<div class="o-layout flex items-center row">
+									<div class="layout-item">
+										<div class="home-promo-media">
+											<img src="images/promo-01.jpg" alt="">
+										</div>
+									</div>
+									<div class="layout-item">
+										<div class="home-promo__box ltr">
+	                                     	<div class="accordion-item open">
+											  	<h2 class="accordion-item-heading">escentials at Paragon</h2>
+											  	<div class="accordion-item-content">
+											    	<p>
+														Paragon Shopping Centre<br>
+														290 Orchard Road<br>
+														#03-02/05<br>
+														Singapore 238859<br>
+														<br>
+														Phone: +65 6737 2478
+											    	</p>
+											  	</div>
+											</div>
+
+											<div class="accordion-item closed">
+											  	<h2 class="accordion-item-heading">escentials at ION Orchard</h2>
+											  	<div class="accordion-item-content">
+											    	<p>
+														2 Orchard Turn #03-27<br>
+														ION Orchard<br>
+														#03-02/05<br>
+														Singapore 238801<br>
+														<br>
+														Phone: +65 6219 4792
+											    	</p>
+											  	</div>
+											</div>
+
+											<div class="accordion-item closed">
+											  	<h2 class="accordion-item-heading">escentials at TANGS Plaza</h2>
+											  	<div class="accordion-item-content">
+											    	<p>
+														310 & 320 Orchard Road<br>
+														Beauty Hall, Level 1<br>
+														#03-02/05<br>
+														Singapore 238864<br>
+														<br>
+														Phone: +65 6734 2122
+											    	</p>
+											  	</div>
+											</div>
+                            			</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<div class="product-collection page-content">
+					<h2 class="text-center section__title-text center-line">Newsletter</h2>
+					<div class="newsletter__form-wrapper mt-30">
+						<div class="mt-20 text-center">
+							<p class="mt-30">Subscribe to our mailing list and <strong>get 10% off*</strong> your first order with us. Receive updates, access to exclusive deals and more.</p>
+							<p class="mt-10">*Terms and brand exclusions apply.</p>
+							<form action="">
+								<div class="o-layout flex form-container mt-20">
+	                                <div class="o-layout__item">
+	                                    <label for="Email" class="u-hidden-visually">Email</label>
+	                                    <input type="email" name="" id="Email" placeholder="email@example.com" autocorrect="off" autocapitalize="none">
+	                                </div>
+	                                <div class="o-layout__item">
+	                                    <button type="submit" class="button button--hollow justify-end block" id="Subscribe">Subscribe</button>
+	                                </div>
+	                            </div>
+                            </form>
+							<p class="fz-12 mt-20 text-light">By submitting this form, I understand and consent that any personal data which I have provided may be processed by Luxasia Group of Companies for marketing purposes and for purposes specified in Luxasia's Privacy Policy.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<footer class="footer bg-white">
+			<div class="container">
+				This is footer section
+			</div>
+		</footer>
+	</div>
+	<script>
+		var slideIndex = 1;
+		showSlides(slideIndex);
+
+		function plusSlides(n) {
+		  showSlides(slideIndex += n);
+		}
+
+		function currentSlide(n) {
+		  showSlides(slideIndex = n);
+		}
+
+		function showSlides(n) {
+		  var i;
+		  var slides = document.getElementsByClassName("mySlides");
+		  var dots = document.getElementsByClassName("dot");
+		  if (n > slides.length) {slideIndex = 1}    
+		  if (n < 1) {slideIndex = slides.length}
+		  for (i = 0; i < slides.length; i++) {
+		      slides[i].style.display = "none";  
+		  }
+		  for (i = 0; i < dots.length; i++) {
+		      dots[i].className = dots[i].className.replace(" active", "");
+		  }
+		  slides[slideIndex-1].style.display = "block";  
+		  dots[slideIndex-1].className += " active";
+		}
+	</script>
+	<script>
+		var accordionItem = document.getElementsByClassName("accordion-item");
+		var accordionHeading = document.getElementsByClassName("accordion-item-heading");
+
+		// Create event listeners for each accordion heading
+		for (i = 0; i < accordionHeading.length; i++) {
+		  accordionHeading[i].addEventListener("click", openItem);
+		}
+
+		function openItem() {
+		  var itemClassName = this.parentNode.className;
+
+		  // If we want to close previous open item when opening another
+		  for (i = 0; i < accordionItem.length; i++) {
+		    accordionItem[i].className = 'accordion-item closed';
+		  }
+
+		  if (itemClassName == 'accordion-item closed') {
+		    this.parentNode.className = 'accordion-item open';
+		  }
+
+		  else {
+		    this.parentNode.className = 'accordion-item open';
+		  }
+		}
+
+		window.onunload = function() {
+		  for (i = 0; i < accordionHeading.length; i++) {
+		    accordionHeading[i].removeEventListener("click", openItem);
+		  }        
+		  return;
+		}
+	</script>
+</body>
+</html>

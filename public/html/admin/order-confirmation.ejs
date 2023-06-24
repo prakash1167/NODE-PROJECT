@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Order Confirmation</title>
+    </head>
+    <body>
+        <div class="main-content">
+            <table style="height: 100% !important; width: 100% !important; border-spacing: 0; border-collapse: collapse;font-family: arial;background: #fafafa;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; margin: 40px 0 20px;">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <table class="container" style="width: 560px; text-align: left; border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="shop-name__cell" style="">
+                                                                <img src="<%=Order.shopUrl%>" alt="Wigo" width="100">
+                                                            </td>
+                                                            <td class="order-number__cell" style="text-transform: uppercase; font-size: 14px; color: #999;" align="right">
+                                                                <span class="order-number__text" style="font-size: 16px;">
+                                                                	Order #<%=Order.order_no%>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse; margin: 40px 0 0;">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <center>
+					                            <table class="container" style="width: 560px; text-align: left; border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+					                                <tbody>
+					                                    <tr>
+					                                        <td style="">
+					                                            <h2 style="font-weight: normal; font-size: 24px; margin: 0 0 10px;">Thank you for your purchase! </h2>
+					                                            <p style="color: #777; line-height: 150%; font-size: 16px; margin: 0;">
+					                                                Hi <%=Order.contactdetails[0].name>, we're getting your order ready to be shipped. We will notify you when it has been sent.
+					                                            </p>
+					                                             <table class="row actions" style="width: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px;">
+					                                                <tbody>
+					                                                    <tr>
+					                                                        <td class="actions__cell" style="">
+					                                                            <table class="button main-action-cell" style="border-spacing: 0; border-collapse: collapse; float: left; margin-right: 15px;">
+					                                                                <tbody>
+					                                                                    <tr>
+					                                                                        <td class="button__cell" style="border-radius: 4px;" bgcolor="#000000" align="center"><a href="/orderdetails/<%=Order.order_no%>" class="button__text" style="font-size: 16px; text-decoration: none; display: block; color: #fff; padding: 20px 25px;">View your order</a></td>
+					                                                                    </tr>
+					                                                                </tbody>
+					                                                            </table>
+					                                                            <table class="link secondary-action-cell" style="border-spacing: 0; border-collapse: collapse; margin-top: 19px;">
+					                                                                <tbody>
+					                                                                    <tr>
+					                                                                        <td class="link__cell" style="">or <a href="/shop" style="font-size: 16px; text-decoration: none; color: #000000;">Visit our store</a></td>
+					                                                                    </tr>
+					                                                                </tbody>
+					                                                            </table>
+					                                                        </td>
+					                                                    </tr>
+					                                                </tbody>
+					                                            </table> 
+					                                        </td>
+					                                    </tr>
+					                                </tbody>
+					                            </table>
+					                        </center>
+					                    </td>
+					                </tr>
+					            </tbody>
+					        </table>
+                            <table class="row section" style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+                                <tbody>
+                                    <tr>
+                                        <td class="section__cell" style="padding: 40px 0 0;">
+                                            <center>
+                                                <table class="container" style="width: 560px; text-align: left; border-spacing: 0; border-collapse: collapse; margin: 0 auto;border-top: 1px #e5e5e5 solid;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="padding-top: 35px;">
+                                                                <h3 style="font-weight: normal; font-size: 20px; margin: 0 0 25px;">Order summary</h3>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table class="container" style="width: 560px; text-align: left; border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="">
+                                                                <table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+                                                                    <tbody>
+                                                                      
+                                                                        <tr>
+                                                                        	<td colspan="3" style="height:10px;">&nbsp;</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="">
+                                                                                <img src="<%=Product.image%>" class="order-list__product-image" style="margin-right: 15px; border-radius: 8px; border: 1px solid #e5e5e5;" width="75" height="50" align="left">
+                                                                            </td>
+                                                                            <td class="order-list__product-description-cell" style="width: 100%;">
+                                                                                <span class="order-list__item-title" style="font-size: 16px; font-weight: 600; line-height: 1.4; color: #555;"><%=Product.product_name%>&nbsp;×&nbsp;1</span><br>
+                                                                                <span class="order-list__item-discount-allocation" style="font-size: 14px; display: block; line-height: 1.4; color: #555; margin: 5px 0 0;">
+                                                                                
+                                                                                <span style="font-size: 14px; color: #999;">
+                                                                                DISCOUNT
+                                                                                (-$5.00)
+                                                                                </span>
+                                                                                </span>
+                                                                            </td>
+                                                                            <td class="order-list__price-cell" style="white-space: nowrap;">
+                                                                                <del class="order-list__item-original-price" style="font-size: 14px; display: block; text-align: right; color: #999;">$<%=Product.offer_price%></del>
+                                                                                <p class="order-list__item-price" style="color: #555; line-height: 150%; font-size: 16px; font-weight: 600; margin: 0 0 0 15px;" align="right">
+                                                                                    $<%=Product.actual_price%>
+                                                                                </p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <table class="row subtotal-lines" style="width: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 15px;margin-bottom: 35px; border-top: 1px #e5e5e5 solid;">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="subtotal-spacer" style="width: 40%;"></td>
+                                                                            <td style="">
+                                                                                <table class="row subtotal-table" style="width: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px;">
+                                                                                    <tbody>
+                                                                                        <tr class="subtotal-line">
+                                                                                            <td class="subtotal-line__title" style="padding: 5px 0;">
+                                                                                                <p style="color: #777; line-height: 1.2em; font-size: 16px; margin: 0;">
+                                                                                                    <span style="font-size: 16px;">subtotal</span>
+                                                                                                </p>
+                                                                                            </td>
+                                                                                            <td class="subtotal-line__value" style="padding: 5px 0;" align="right">
+                                                                                                <strong style="font-size: 16px; color: #555;">$<%=Order.total_price%></strong>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr class="subtotal-line">
+                                                                                            <td class="subtotal-line__title" style="padding: 5px 0;">
+                                                                                                <p style="color: #777; line-height: 1.2em; font-size: 16px; margin: 0;">
+                                                                                                    <span style="font-size: 16px;">Shipping</span>
+                                                                                                </p>
+                                                                                            </td>
+                                                                                            <td class="subtotal-line__value" style="padding: 5px 0;" align="right">
+                                                                                                <strong style="font-size: 16px; color: #555;">$10.00</strong>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr class="subtotal-line">
+                                                                                            <td class="subtotal-line__title" style="padding: 5px 0;">
+                                                                                                <p style="color: #777; line-height: 1.2em; font-size: 16px; margin: 0;">
+                                                                                                    <span style="font-size: 16px;">Taxes</span>
+                                                                                                </p>
+                                                                                            </td>
+                                                                                            <td class="subtotal-line__value" style="padding: 5px 0;" align="right">
+                                                                                                <strong style="font-size: 16px; color: #555;">$0.00</strong>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                <table class="row subtotal-table subtotal-table--total" style="width: 100%; border-spacing: 0; border-collapse: collapse; margin-top: 20px; border-top-width: 2px; border-top-color: #e5e5e5; border-top-style: solid;">
+                                                                                    <tbody>
+                                                                                        <tr class="subtotal-line">
+                                                                                            <td class="subtotal-line__title" style="padding: 20px 0 0;">
+                                                                                                <p style="color: #777; line-height: 1.2em; font-size: 16px; margin: 0;">
+                                                                                                    <span style="font-size: 16px;">Total</span>
+                                                                                                </p>
+                                                                                            </td>
+                                                                                            <td class="subtotal-line__value" style="padding: 20px 0 0;" align="right">
+                                                                                                <strong style="font-size: 24px; color: #555;">$<%=Order.total_price%>USD</strong>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                <p class="total-discount" style="color: #777; line-height: 1.1; font-size: 16px; margin: 10px 0 0;" align="right">
+                                                                                    You saved <span class="total-discount--amount" style="font-size: 16px; color: #555;">$5.00</span>
+                                                                                </p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="row section" style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+                                <tbody>
+                                    <tr>
+                                        <td class="section__cell" style="padding: 0 0 40px 0;">
+                                            <center>
+                                                <table class="container" style="width: 560px; text-align: left; border-spacing: 0; border-collapse: collapse; margin: 0 auto;border-top: 1px #e5e5e5 solid;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="padding-top: 35px;">
+                                                                <h3 style="font-weight: normal; font-size: 20px; margin: 0 0 25px;">Customer information</h3>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table class="container" style="width: 560px; text-align: left; border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="">
+                                                                <table class="row" style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="customer-info__item" style="width: 50%;">
+                                                                                <h4 style="font-weight: 600; font-size: 16px; color: #555; margin: 0 0 5px;">Shipping address</h4>
+                                                                                <p style="color: #777; line-height: 150%; font-size: 16px; margin: 0;"><%=Order.shippingdetails[0].name%><br><%=Order.shippingdetails[0].address %></p>
+                                                                            </td>
+                                                                            <td class="customer-info__item" style="width: 50%;vertical-align: top;">
+                                                                                <h4 style="font-weight: 600; font-size: 16px; color: #555; margin: 0 0 5px;vertical-align: top;">Payment method</h4>
+                                                                                <p class="customer-info__item-content" style="color: #777; line-height: 150%; font-size: 16px; margin: 0;">
+                                                                                    <span style="font-size: 16px;">ending with 1234 — <strong style="font-size: 16px; color: #555;">$137.00</strong></span>
+                                                                                </p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="row footer" style="width: 100%; border-spacing: 0; border-collapse: collapse; border-top: 1px #e5e5e5 solid;">
+                                <tbody>
+                                    <tr>
+                                        <td class="footer__cell" style="padding: 35px 0;">
+                                            <center>
+                                                <table class="container" style="width: 560px; text-align: left; border-spacing: 0; border-collapse: collapse; margin: 0 auto;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <p class="disclaimer__subtext" style="color: #999; line-height: 150%; font-size: 14px; margin: 0;">If you have any questions, reply to this email or contact us at <a href="mailto:accounts@codem.com" style="font-size: 14px; text-decoration: none; color: #000000;">accounts@codem.com</a></p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

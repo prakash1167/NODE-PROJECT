@@ -1,0 +1,6 @@
+npm i
+npm start
+http://localhost:5000/
+.env
+dbConnectionUrl="mongodb://127.0.0.1:27017/e-commerce?retryWrites=true&w=majority"
+ npm i express ejs body-parser bcrypt fs multer mongoose mongodb session cookie-parser dotenv cors path express-session

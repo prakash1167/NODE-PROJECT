@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Project - Login</title>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<div class="main-content">
+		
+		<header class="header bg-white" id="header">
+			<div class="container">
+				<div class="page-header">
+					<div class="header-left">
+						<div class="logo-image">
+				            <a href="/">
+				            	<img src="images/wigo-logo-img.png" width="70" height="36" alt="Wigo Store" itemprop="logo">
+				            </a>
+				      	</div>
+				      	<div class="header-menu">
+				      		<nav class="navigation">
+				      			<ul>
+				      				<li><a href="/collections">Collections</a></li>
+				      			</ul>
+				      		</nav>
+				      	</div>
+			      	</div>
+			      	<div class="header-right">
+			      		<div class="header-items">
+				          	<span class="sign-in">
+			            		<svg width="22px" height="22px" viewBox="-1 -1 21 20">
+								  	<g transform="translate(0.968750, -0.031250)" stroke="none" stroke-width="1" fill="currentColor" fill-rule="nonzero">
+								    	<path d="M9,7.5 C10.704,7.5 12.086,6.157 12.086,4.5 C12.086,2.843 10.704,1.5 9,1.5 C7.296,1.5 5.914,2.843 5.914,4.5 C5.914,6.157 7.296,7.5 9,7.5 Z M9,9 C6.444,9 4.371,6.985 4.371,4.5 C4.371,2.015 6.444,0 9,0 C11.556,0 13.629,2.015 13.629,4.5 C13.629,6.985 11.556,9 9,9 Z M1.543,18 L0,18 L0,15 C0,12.377 2.187,10.25 4.886,10.25 L14.143,10.25 C16.273,10.25 18,11.929 18,14 L18,18 L16.457,18 L16.457,14 C16.457,12.757 15.421,11.75 14.143,11.75 L4.886,11.75 C3.04,11.75 1.543,13.205 1.543,15 L1.543,18 Z"></path>
+								  	</g>
+								</svg>
+								<div class="head-link bg-white">
+									<a class="main-menu-link" href="/logout">Logout</a>
+								</div>
+				          	</span>
+				        </div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<section>
+			<div class="container">
+				<div class="cart-template page-content">
+					<h2>Cart</h2>	<% if(cart===null ||cart.products.length==0)  { %>
+						<h2>No items found in a cart</h2>
+						<%} else {%>
+					<div class="cart-count-price">
+	                    <p class="no-margin">
+	                        <span class="cart-total-quantity">TOTAL:<%=cart.products.length %>  items</span>
+	                        <strong class="cart-total-price">
+	                        	(<span><span id="revy-cart-subtotal-price">€<%=cart.totalPrice%></span></span>)
+	                        </strong>
+	                    </p>
+	                </div>
+	                <div class="main-cart-wrapper">
+						
+		                <div class="cart__items cart__block">
+			                <div class="line-items">
+								
+							
+									<% for( let i = 0 ; i < cart.products.length; i++) {
+									let Product= cart.products[i] ;
+								%>
+			                	<div class="line-item">
+			                		<div class="line-item__left">
+
+										
+		                        		<div class="line-item__image-wrapper">
+				                            <img class="line-item__image" src="<%=Product.image%>" alt="">
+				                        </div>
+				                    </div>	
+				                    <div class="line-item__right">
+				                        <div class="line-item__details">
+				                            <h2 class="line-item-title">
+				                            	<a href="product.html" class="cart__product-title">
+				                                	<%=Product.product_name%>
+				                              </a>
+				                            </h2>
+											<a title="Remove item" class="line-item__remove" href="/cart">
+												<form action="/deleteCart/cart"  method="POST">
+													<input type="hidden"  name="productID"value="<%=Product.id%>" >
+													<button><svg aria-hidden="true" viewBox="0 0 448 512" class="svg-inline--fa fa-trash-alt fa-w-14 fa-3x">
+				                            		<path fill="currentColor"d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" class=""></path>
+				                            	</svg></button>
+											</a>
+											</form>
+				                            
+				                        </div>
+				                        
+				                        <div class="line-item__price">
+				                            <span><strong>Price:</strong></span>€<%=Product.offer_price%>
+										</div>
+				                      
+				                        <div class="line-item__total-amount-price">
+				                            <span><strong>Total Price:</strong></span>€<%=Product.offer_price * Product.qty%>
+										</div>
+										<form action="/updatecart/<%=Product.id  %>" method="post">
+				                        <div class="line-item__quantity">
+										
+				                            <span class="line-item__quantity-text">Quantity:</span>
+				                            <input type="text" name="updates" size="4" value="<%=Product.qty  %>">
+				                            <button class="button update_btn" type="submit">Update Quantity</button>
+											<input type="hidden"  name="productID"value="<%=Product.id%>" >
+				                        </div>  </form>
+				                    </div>
+					
+			                	</div><%}%>
+			                </div>
+		                </div>
+		                <div class="cart__details cart__block">
+			                <div class="cart__details-wrap">
+			                    <h5>ORDER SUMMARY</h5>
+			                    <p class="no-margin evenly-align">
+			                        <span class="cart-total-quantity"><%=cart.products.length%> items</span>
+			                        <span class="cart-total-price">
+			                        	<span>€<%=cart.totalPrice%></span>
+			                        </span>
+			                    </p>
+			                  	<div class="cart-subtotal evenly-align cart__total">
+			                        <span class="cart-subtotal__title">Subtotal</span>
+			                        <strong><span class="cart-subtotal__price">€<%=cart.totalafterDiscount%></span></strong>
+			                    </div>
+			                    <div class="cart__total evenly-align">
+			                        <span class="cart__total-text">Total:</span>  
+			                        <strong class="cart__total-price">
+			                        	<span>€<%=cart.totalPrice - cart.totalafterDiscount%></span>
+			                        	<span> EUR</span>
+			                        </strong>
+			                    </div><form action="/updatecoupon" method="POST">
+			                  	<button class="button update_btn" type="submit">Update Quantity</button></form>
+			                    <a href="/checkout" class="button checkout_btn button--hollow">Checkout</a>
+			                  	<form action="/applycoupon"method="POST"><div class="cart-promo">
+			                    	<h5>ENTER A PROMO CODE</h5>
+			                    	<input type="text"name="coupon" >
+			                    	<button>Apply Coupon</button>
+			                  	</div></form>
+			                  	<div class="text-center mt-20">
+			                  		<a class="link-text-line" href="/" title="Continue shopping">Continue shopping</a>
+			                  	</div>
+			                </div>
+			              
+			            </div><%}%>
+	                </div>
+				</div> 
+			</div>
+		</section>
+		
+		<footer class="footer bg-white">
+			<div class="container">
+				This is footer section
+			</div>
+		</footer>
+	</div>
+</body>
+</html>
