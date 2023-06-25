@@ -45,12 +45,12 @@
 				</div>
 			</div>
 		</header>
-
+<form action="/admin/homepage"method="POST" enctype="multipart/form-data">
 		<section class="flex">
 			<div class="container-fluid">
 				<div class="flex mt-20 items-center">
 					<h2 class="">Home Page</h2>
-					<a href="#" class="button button--hollow justify-end inline-block">Save</a>
+					<button type="submit"  class="button button--hollow justify-end inline-block">Save</button>
 				</div>
 				<div class="admin-content">
 					<div class="admin-left-nav left-scroll mt-20">
@@ -59,7 +59,7 @@
 						  <option value="shift" selected>shift elements down</option>
 						</select>
 						<ul class="draggable-lists" id="draggable-list">
-							<li class="draggable item" draggable="true"><span id="topbar-promo">Announcement</span></li>
+							<li class="draggable item" draggable="true"><span name=""id="topbar-promo">Announcement</span></li>
 							<li class="draggable item" draggable="true"><span id="main-header">Header</span></li>
 							<li class="draggable item" draggable="true"><span id="hero-banner">Hero Banner</span></li>
 							<li class="draggable item" draggable="true"><span id="best-seller">Bestsellers</span></li>
@@ -78,7 +78,7 @@
 				</div>
 			</div>
 		</section>
-		
+	</form>
 		<footer class="footer bg-white">
 			<div class="container-fluid">
 				This is footer section

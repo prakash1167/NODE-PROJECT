@@ -68,5 +68,9 @@ static update(productID,qty) {
             cart.products.splice(isExisting, 1);
         }
     }
+    static delete() {
+        cart.products.splice(cart.products);
+return cart;
+    }
 
 }

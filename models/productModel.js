@@ -5,7 +5,7 @@ const Product_schema= new mongoose.Schema({
    
     sku:{type:String,unique:true,requied:true} ,
     product_name: String,
-    brand_name: {type:String,default:"level1"},
+    brand_name: {type:String,default:"chopard"},
     image: {
         type: String,
        

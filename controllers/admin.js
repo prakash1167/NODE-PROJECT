@@ -65,7 +65,25 @@ adminRouter.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/login');
 });
-
+adminRouter.post('/homepage',upload.single('image'), async(req, res) => {
+    const file = req.file;
+    if(!file) return res.status(400).send('No image in the request')
+    const fileName = file.filename
+    const basePath = `${req.protocol}://${req.get('host')}/public/images/`
+    
+    console.log(req.file);
+ 
+      let homeObj={
+        bg_color:req.body.bg_color,
+        logo_image: `${basePath}${fileName}`,
+          text_color:req.body.text_color,
+          font_size:req.body.font_size,
+          font_weight:req.body.font_weight,
+          text_align:req.body.text_align,
+          slides:req.body.slides
+      }
+      let insertedRec = await HomeUtil.insert(homeObj);
+})
 adminRouter.post('/product',upload.single('image'), async(req, res) => {
    
     const file = req.file;

@@ -175,6 +175,7 @@ userRouter.post('/checkout',async (req, res) => {
   userRouter.get('/order-success', (req, res) => {
     if(req.session.order_no != undefined && req.session.order_no != null) {
       let order = {order_no: req.session.order_no};
+      Cart.delete();
       res.render(path.resolve(__dirname + '/../public/html/user/order-success.ejs'),{Order:order});
     } else {
       res.redirect('/');
