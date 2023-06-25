@@ -200,13 +200,15 @@ userRouter.post('/checkout',async (req, res) => {
       const {coupon}=req.body;
       if(coupon != undefined && coupon != null){
         const validCoupon=await Coupon.findOne({code:coupon});
-        if(validCoupon==null){
-          res.redirect('/cart')
+        if(validCoupon!=null ||validCoupon!=undefined){
+          const cart=Cart.getCart();
+          Cart.applycoupon(validCoupon.products,validCoupon.percentage)
+          res.redirect('/cart');
         }
        // console.log(validCoupon);
-        const cart=Cart.getCart();
-        Cart.applycoupon(validCoupon.products,validCoupon.percentage)
+       else{
         res.redirect('/cart');
+      }
       }
       else{
         res.redirect('/cart');
